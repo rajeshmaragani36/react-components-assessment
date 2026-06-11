@@ -1,23 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import StudentCard from "./Components/StudentCard";
+import Counter from "./Components/Counter";
 
 function App() {
+  const [count, setCount] = useState(0);
+
+  const increaseCount = () => {
+    setCount(count + 1);
+  };
+
+  const decreaseCount = () => {
+    setCount(count - 1);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        textAlign: "center",
+        marginTop: "40px",
+        fontFamily: "Arial",
+      }}
+    >
+      <h1>
+        React Components, Props & State Assessment
+      </h1>
+
+      <StudentCard
+        name="M Rajesh"
+        course="CSE"
+        city="Guntur"
+      />
+
+      <Counter
+        count={count}
+        increase={increaseCount}
+        decrease={decreaseCount}
+      />
     </div>
   );
 }
